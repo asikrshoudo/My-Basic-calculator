@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    padding: 20px;
+}
+
+.calculator {
+    width: 320px;
+    background-color: #1e1e2e;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.calculator:hover {
+    transform: translateY(-5px);
+}
+
+.display {
+    padding: 30px 20px;
+    background-color: #2d3047;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.previous-operand {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    min-height: 1.5rem;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.current-operand {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+button {
+    border: none;
+    background-color: #2d3047;
+    color: white;
+    font-size: 1.3rem;
+    padding: 20px 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+button:hover {
+    background-color: #3a3e5b;
+}
+
+button:active {
+    background-color: #4a5079;
+    transform: scale(0.95);
+}
+
+.operator {
+    background-color: #ff9500;
+    color: white;
+}
+
+.operator:hover {
+    background-color: #ffaa33;
+}
+
+.equals {
+    background-color: #ff9500;
+    grid-column: span 2;
+}
+
+.clear, .backspace {
+    background-color: #a6a6a6;
+    color: #1e1e2e;
+}
+
+.clear:hover, .backspace:hover {
+    background-color: #bfbfbf;
+}
+
+.number, .decimal {
+    background-color: #3a3e5b;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+/* Animation for button presses */
+@keyframes buttonPress {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+.pressed {
+    animation: buttonPress 0.2s ease;
+}
+
+/* Responsive design */
+@media (max-width: 400px) {
+    .calculator {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    button {
+        padding: 18px 0;
+        font-size: 1.2rem;
+    }
+}
